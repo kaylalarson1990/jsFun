@@ -24,21 +24,21 @@ const kittyPrompts = {
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.filter(catColor => catColor.color === "orange").map(catName => catName.name);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // First I had to use .filter() in order to sort out all the cats with orange fur only. Then, from those cats that were left, I mapped them using .map() so that it returned a new array of just their names.
   },
 
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a, b) => b.age - a.age);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // Knowing that we needed to sort the array of objects by a specific key, I used .sort() -> The basic idea is to modify the compare function so it compares the desired properties' values
   },
 
   growUp() {
@@ -55,7 +55,8 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.map(catAge => {catAge.age = catAge.age + 2; 
+        return catAge;});
     return result;
   }
 };
@@ -87,7 +88,18 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = {
+        Louisa: ['Drama', 'Art'],
+        Pam: ['Drama', 'Chess', 'Newspaper'],
+        Nathaniel: ['Drama', 'Astronomy'],
+        Leta: ['Band', 'Newspaper', 'Astronomy'],
+        Robbie: ['Band', 'Chess', 'FBLA'],
+        Jhun: ['Band', 'Art'],
+        Will: ['Band'],
+        David: ['Chess', 'Newspaper', 'FBLA'],
+        Brittany: ['Chess', 'Newspaper'],
+        Christie: ['Newspaper', 'FBLA'],
+    };
     return result;
 
     // Annotation:
@@ -123,7 +135,9 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = mods.map(function(keys){
+        return {mod:keys.mod,studentsPerInstructor:keys.students/keys.instructors}
+    });
     return result;
 
     // Annotation:
